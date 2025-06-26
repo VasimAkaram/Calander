@@ -57,6 +57,7 @@ header {
   align-items: center;
   justify-content: space-between;
   margin-bottom: 1.2rem;
+  flex-wrap: wrap;
 }
 #yearSelect, #monthName, button {
   font-size: 1.18rem;
@@ -99,6 +100,7 @@ button:hover {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0 0.3rem;
+  table-layout: fixed;
 }
 .calendar th, .calendar td {
   text-align: center;
@@ -106,6 +108,7 @@ button:hover {
   border-radius: 14px;
   transition: background 0.25s, color 0.25s, box-shadow 0.25s, transform 0.18s;
   font-family: inherit;
+  word-break: break-word;
 }
 .calendar th {
   color: #185a9d;
@@ -192,16 +195,55 @@ button:hover {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
-@media (max-width: 500px) {
+
+/* Mobile Responsive Styles */
+@media (max-width: 600px) {
+  body {
+    align-items: flex-start;
+    justify-content: flex-start;
+    min-height: 100vh;
+    padding: 0;
+  }
   .calendar-container {
-    padding: 1rem;
+    padding: 0.7rem 0.2rem 1.2rem 0.2rem;
     max-width: 100vw;
+    min-width: 0;
+    border-radius: 0 0 18px 18px;
+    box-shadow: 0 2px 16px 0 rgba(31, 38, 135, 0.13);
+  }
+  header {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.7rem;
+    justify-content: center;
+  }
+  #yearSelect, #monthName, button {
+    font-size: 1rem;
+    margin: 0 0.15rem;
+  }
+  #monthName {
+    font-size: 1.08rem;
+    letter-spacing: 0.7px;
+  }
+  button {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.1rem;
+  }
+  .calendar {
+    font-size: 0.95rem;
+    border-spacing: 0 0.1rem;
   }
   .calendar th, .calendar td {
     padding: 0.38rem 0;
-    font-size: 0.98rem;
+    font-size: 0.93rem;
+    border-radius: 8px;
   }
-  #monthName {
-    font-size: 1.1rem;
+  #eventInfo {
+    font-size: 0.98rem;
+    padding: 0.7rem;
+    margin-top: 0.7rem;
+    border-radius: 8px;
   }
 } 
